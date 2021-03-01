@@ -17,6 +17,10 @@ module.exports = {
         name: `About`,
         link: `/about`,
       },
+      {
+        name: `Events`,
+        link: `/events`,
+      },
     ],
   },
   plugins: [
@@ -31,6 +35,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `events`,
+        path: `${__dirname}/content/events/`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [
@@ -40,6 +51,12 @@ module.exports = {
             ? [require(`cssnano`)]
             : []),
         ],
+      },
+    },
+    {
+      resolve: `gatsby-transformer-yaml`,
+      options: {
+        typeName: `Event`,
       },
     },
   ],
