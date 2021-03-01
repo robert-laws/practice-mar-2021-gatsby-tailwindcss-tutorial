@@ -17,6 +17,8 @@ const Article = ({ data }) => {
         )}
       </div>
       <p>author: {article.frontmatter.author}</p>
+      <hr />
+      <div className="p-4" dangerouslySetInnerHTML={{ __html: article.html }} />
     </div>
   )
 }
